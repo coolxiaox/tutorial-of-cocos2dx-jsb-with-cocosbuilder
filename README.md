@@ -10,8 +10,6 @@ Cocos2d-x JavaScript Binding结合CocosBuilder跨平台游戏开发简明教程
 
 因我本人亦是刚刚加入Cocos2d阵营学习不久，加上自身能力有限，教程之中若有错误，还望不吝指出，我将及时更新修复错误。另外，本人热爱开源，因此本教程亦设定为“`开源教程`”。希望能借此抛砖引玉，让更多的朋友参与到这个教程的编写过程中来，共同学习和完善相关内容，让更多人后来者受益。
 
-另外，本教程中多屏幕适配相关的知识曾得到[杨世玲](http://young40.github.io/)老兄的大力指导，在此深表感谢:)
-
 ##一、Cocos2d-x JavaScript Binding简明介绍
 
 众所周知，Cocos2d-x的主要开发语言是C++，而Cocos2d-x JavaScript Binding则是基于Cocos2d-x用JavaScript语法来编写游戏。Cocos2d-x JavaScript Binding又常常被简称为JSB，其实现原理可简单地总结为：Cocos2d-x内置了一套JavaScript的解析引擎SpiderMonkey，通过SpiderMonkey在引擎内部将JavaScript代码“映射”为C++代码，从而实现了用JavaScript语法调用Cocos2d-x的API来完成游戏的逻辑的编写。这意味着，JSB开发模式在依然保持了C++原生应用同样的性能这个优点之外，还大大降低了开发语言的门槛。
