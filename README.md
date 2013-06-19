@@ -261,7 +261,27 @@ MainScene.ccb是CocosBuilder的默认入口，即游戏启动后第一个加载�
 
 触屏事件是游戏开发中必不可少的，是玩家和游戏产生交互的基础。我们将以MainScene为例来讲解如何响应玩家的触屏事件，目标是实现玩家点击屏幕任意区域后在helloLabel这个文本区域内显示其点击位置的坐标。
 
-双击打开MainScene.ccb，选中根节点（CCLayer），我们在右侧最下面的CCLayer属性设置中可以看到四个选项，其各自的含义解释如下图：
+需要特别强调下，一个已知的问题是Cocos2d-x和CocosBuilder中对于事件定义的标准存在差异，这导致了我们必须通过修改Cocos2d-x中CCBReader的源代码才能正确地响应各种事件。具体修改方式如下：
+
+    $  vim {cocos2d-x}/extensions/CCBReader/CCLayerLoader.cpp
+
+将
+```
+#define PROPERTY_TOUCH_ENABLED "isTouchEnabled"
+#define PROPERTY_ACCELEROMETER_ENABLED "isAccelerometerEnabled"
+#define PROPERTY_MOUSE_ENABLED "isMouseEnabled"
+#define PROPERTY_KEYBOARD_ENABLED "isKeyboardEnabled"
+```
+替换为：
+```
+#define PROPERTY_TOUCH_ENABLED "touchEnabled"
+#define PROPERTY_ACCELEROMETER_ENABLED "accelerometerEnabled"
+#define PROPERTY_MOUSE_ENABLED "mouseEnabled"
+#define PROPERTY_KEYBOARD_ENABLED "keyboardEnabled"
+```
+这个问题已经存在了较长的时间，但至今最新版本依然没有得以解决。
+
+做完以上修改后，我们回到CocosBuilder。双击打开MainScene.ccb，选中根节点（CCLayer），我们在右侧最下面的CCLayer属性设置中可以看到四个选项，其各自的含义解释如下图：
 
 ![tutorial-11.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-11.png)
 
