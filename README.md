@@ -58,25 +58,25 @@ Cocos2d-x JavaScript Binding结合CocosBuilder跨平台游戏开发简明教程
 
 在打开的CocosBuilder界面中新建一个CocosBuilder工程（File->New->New Project），注意这里的命名一定和之前的项目名称一样，并且要保存在工程目录。如下图所示：
 
-![tutorial-01.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-01.png)
+![tutorial-01.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-01.png)
 
 保存时会提示是否覆盖，请点击“Replace”确认覆盖。如下图：
 
-![tutorial-02.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-02.png)
+![tutorial-02.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-02.png)
 
 *`提示`：如果你操作时没有出现这个提示，那么一定是你的名称或保存目录位置有错，请删除刚才创建的内容重新操作。*
 
 以上操作完毕后，你会看到在MyGame目录下新增了MyGame.ccbproj文件和Resources目录。MyGame.ccbproj是CocosBuilder的工程文件，而Resources则是默认的资源存放路径。还记得我们之前创建项目工程后删掉的Resources目录吗？这里又重新补上了，因为我们下来都要用CocosBuilder来组织和生成游戏资源。注意这个资源路径设置仅仅是默认的，为了方便教学我们不做修改，如果你需要修改，请打开菜单File->Project Settings进行修改。打开Resources目录可以看到，里面已经有一些文件。这是CocosBuilder在创建工程时默认为我们添加的，我们这个教程将直接使用这些默认的资源来进行演示，所以我们予以保留。如下图：
 
-![tutorial-08.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-08.png)
+![tutorial-08.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-08.png)
 
 接下来，点击菜单（File->Publish Settings）打卡发布设置界面，激活所有平台。默认情况下，iOS和HTML5的发布设置都是选中状态，我们只需要再勾选上中间的Android。请注意每个选项中以Published-开头的设置，那代表着你用CocosBuilder制作的游戏资源或代码将会被存储到那些对应的目录里。图示：
 
-![tutorial-03.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-03.png)
+![tutorial-03.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-03.png)
 
 最后点击菜单（File->Publish）进行发布，这个发布行为会自动生成上面提到的三个Published-开头的文件夹。打开看看，会发现里面有一些文件，那都是刚才由CocosBuilder自动生成的。仔细观察会发现，不同平台目录下的文件会有所差异，这就是CocosBuilder的强大之处，它可以根据你的设置来针对不同平台的特征自动处理资源兼容和适配问题。另外，原来资源目录Resources下的ccb文件均被发布成了ccbi的二进制版本，以供程序代码直接调用。
 
-![tutorial-04.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-04.png)
+![tutorial-04.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-04.png)
 
 ###4、修改工程配置以连接CocosBuilder
 
@@ -192,15 +192,15 @@ iOS工程打开后，分别做以下三件事：
 
 * 可以看到Resources分组下的main.js, res, src是显示红色的，这些文件或文件夹在此前的步骤里已经连带Resources目录删除而不存在，但其引用关系依然在，所以我们将其选中并右键点选“delete”删除。
 
-![tutorial-05.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-05.png)
+![tutorial-05.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-05.png)
 
 * 将此前由CocosBuilder自动生成的Published-iOS文件夹拖拽到Xcode中。注意要放在MyGame的根节点下，并且要在弹出的窗口中去掉第一个"Copy items into …"选项前面的勾选状态，然后选中“Create folder references for any added folders”。这两个操作非常重要，其含义是在MyGame的Xcode工程中对Published-iOS文件夹建立一个“引用”关系，而不是将此文件夹的内容复制到工程中。这样的好处是，今后Published-iOS目录中有任何变动都会及时地反应到MyGame，而无须再次手动添加到工程。
 
-![tutorial-06.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-06.png)
+![tutorial-06.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-06.png)
 
 * 注意Xcode左上角的scheme区域的左侧，如果显示的是cocos2dx，请点击该按钮将其手动改为MyGame。如果本就是MyGame则无须修改。另外，右边的iOS Device也需要重新点选为一个具体的模拟器，如图，我选择的是iPhone 6.1 Simulator。
 
-![tutorial-07.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-07.png)
+![tutorial-07.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-07.png)
 
 完成以上步骤后，点击左上角Run按钮，Xcode将会开始编译并自动启动模拟器来启动和运行MyGame。看看效果，就是此前在CocosBuilder所生成的默认画面。
 
@@ -228,7 +228,7 @@ HTML5版本中加载资源需要通过HTTP请求来完成，所以必须要有�
     $  open {cocos2d-x}/projects/MyGame/MyGame.ccbproj
 其界面大致介绍如下图：
 
-![tutorial-09.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-09.png)
+![tutorial-09.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-09.png)
 
 在左侧的资源列表区，我们可以看到两个以MainScene开头的文件，一个是ccb，一个是js。
 
@@ -238,7 +238,7 @@ MainScene.ccb是CocosBuilder的默认入口，即游戏启动后第一个加载�
 
 我们来到CocosBuilder界面中下面的编辑区，“Default Timeline”表示这是当前ccb的默认时间轴，点击这里会弹出新建和编辑timeline等选项，每个ccb文件都可以创建多个timeline，并且可以将多个timeline连接起来，具体可见点击界面底部的“No chained timeline”的弹出菜单。
 
-![tutorial-10.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-10.png)
+![tutorial-10.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-10.png)
 
 点击选中CCLayer节点，右侧会显示这个层的各种属性设置选项。我们注意到最顶部的“Code Connections”中“JS Controller”，这就是ccb文件和JavaScript自动连接的重要选项，它为当前这个层定义了一个JavaScript的控制器类的名称，这样我们就可以在程序代码中来直接操作这个层里面的资源或节点。
 
@@ -283,7 +283,7 @@ MainScene.ccb是CocosBuilder的默认入口，即游戏启动后第一个加载�
 
 做完以上修改后，我们回到CocosBuilder。双击打开MainScene.ccb，选中根节点（CCLayer），我们在右侧最下面的CCLayer属性设置中可以看到四个选项，其各自的含义解释如下图：
 
-![tutorial-11.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master//images/tutorial-11.png)
+![tutorial-11.png](https://github.com/loosen/tutorial-of-cocos2dx-jsb-with-cocosbuilder/raw/master/images/tutorial-11.png)
 
 我们预期的是想让MainScene响应触屏事件，因此默认选项不用更改即可，其他三项鼠标事件、重力感应事件和键盘事件没有用到则暂且不管。
 
